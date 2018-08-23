@@ -12,7 +12,7 @@ The site was built with the following technologies and languages:
 - MongoDB
 
 ### User connects to the site
-![Imgur](https://i.imgur.com/X2ZXir2.gifv)
+![Imgur](https://image.ibb.co/dbmPiK/098760.gif)
 
 ### Administrator connects to the site
 ![Imgur](https://image.ibb.co/d6EKiK/098760.gif)
