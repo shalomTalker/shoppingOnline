@@ -1,0 +1,96 @@
+.img {
+  float: left;
+  overflow: hidden;
+  width: 28px;
+  height: 28px;
+}
+
+.productRow {
+  float: left;
+  border-bottom: solid 1px #c3c3c3;
+  padding: 5px;
+  width: 100%;
+  height: 50px;
+}
+
+.price {
+  float: right;
+  font-size: 12px;
+  font-weight: bold;
+  color: #4f4f4f;
+  white-space: nowrap;
+}
+
+.productName {
+  text-transform: capitalize;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: normal;
+  color: #025798;
+  display: inline;
+  padding-left: 7px;
+  padding-right: 5px;
+}
+
+.changeAmount {
+  float: left;
+  padding-left: 2px;
+  padding-top: 3px;
+  cursor: pointer;
+  margin-bottom: 1px;
+  width: 54px;
+}
+
+.changeAmount .up {
+  float: left;
+  width: 15px;
+  height: 15px;
+  overflow: hidden;
+  margin: -4px -4px 0px -1px;
+  background: url('../../../../../assets/up_btn.png') center center no-repeat;
+}
+
+.changeAmount .down {
+  float: left;
+  width: 15px;
+  height: 15px;
+  margin: 11px 0px 0px -11px;
+  overflow: hidden;
+  background: url('../../../../../assets/down_btn.png') center center no-repeat;
+}
+
+.changeAmount input.number {
+  float: left;
+  width: 29px;
+  height: 24px;
+  font-size: 11px;
+  font-weight: normal;
+  color: #787878;
+  border: 1px solid #787878;
+  text-align: center;
+  line-height: 24px;
+  vertical-align: middle;
+  margin: -2px 2px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.changeAmount .text {
+  float: left;
+  font-size: 13px;
+  font-weight: normal;
+  color: #4f4f4f;
+  text-align: left;
+  width: 20px;
+  margin-top: -10px;
+}
+
+.popupBtn {
+  height: 15px;
+  width: 15px;
+  padding: 0px;
+  margin: 0px 0px 1px 9px;
+}

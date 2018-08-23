@@ -1,0 +1,130 @@
+body {
+  background: #E0E0E0;
+  font-family: 'Roboto', sans-serif;
+}
+
+::selection {
+  background: #f31544;
+  color: #FFF;
+}
+
+::moz-selection {
+  background: #f31544;
+  color: #FFF;
+}
+
+h1 {
+  font-size: 1.5em;
+  color: #222;
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: .9em;
+  text-transform: capitalize;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 2em;
+  text-transform: capitalize;
+}
+
+p {
+  font-size: .7em;
+  color: #666;
+  line-height: 1.2em;
+  text-transform: capitalize;
+}
+
+#invoiceholder {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+}
+
+#invoice {
+  position: relative;
+  margin: 0 auto;
+  width: 700px;
+  background: #FFF;
+}
+
+[id*='invoice-'] {
+  /* Targets all id with 'col-' */
+  border-bottom: 1px solid #EEE;
+  padding: 30px;
+}
+
+#invoice-top {
+  min-height: 120px;
+}
+
+#invoice-mid {
+  min-height: 120px;
+}
+
+#invoice-bot {
+  min-height: 250px;
+}
+
+.info {
+  display: block;
+  float: left;
+  margin-left: 20px;
+}
+
+.title {
+  float: right;
+}
+
+.title p {
+  text-align: right;
+}
+
+#details {
+  margin-left: 52%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 5px 0 5px 15px;
+  border: 1px solid #EEE
+}
+
+.tabletitle {
+  padding: 5px;
+  background: #EEE;
+}
+
+.items {
+  border: 1px solid #EEE;
+}
+
+.item {
+  width: 50%;
+}
+
+.itemtext {
+  font-size: .9em;
+  text-transform: capitalize;
+}
+
+#legalcopy {
+  margin-top: 30px;
+}
+
+form {
+  float: right;
+  margin-top: 30px;
+  text-align: right;
+}
+
+.legal {
+  width: 70%;
+}

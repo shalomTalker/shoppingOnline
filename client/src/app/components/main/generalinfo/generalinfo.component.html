@@ -1,0 +1,29 @@
+<div class="allPanel z-depth-5">
+
+  <div class="p-5">
+    <img class="mx-auto d-block img-fluid" src="../../../assets/info.jpg">
+    <p>
+      <strong>Available products in our store</strong> - {{productsLength}}</p>
+    <p>
+      <strong>Number of orders submitted in our store</strong> - {{orders}}</p>
+  </div>
+  <div class="p-5" *ngIf="logged.token != null">
+    <h3>
+      <strong>Notification</strong>
+    </h3>
+    <div *ngIf="logged.user.level != 2; else admin">
+      <div *ngIf="cartCreate != null;else basketClose">
+        <p>You have open cart from {{cartCreate}}</p>
+      </div>
+      <ng-template #basketClose>
+        <p>You did not have open cart</p>
+      </ng-template>
+      <div *ngIf="lastOrder != null">
+        <p>Your last order was on {{lastOrder}}</p>
+      </div>
+    </div>
+    <ng-template #admin>
+      <p>This user is logged in as an administrator</p>
+    </ng-template>
+  </div>
+</div>

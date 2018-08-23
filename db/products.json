@@ -1,0 +1,35 @@
+{"_id":{"$oid":"5b6ae1fc4a9d924abcebd923"},"name":"Yogurt with chocolate chips","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":1.5,"image":"1533731324523ajt4241.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6ae2d74a9d924abcebd925"},"name":"Cheese 28%","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":10.2,"image":"15337374603111533731511662z_55350.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6ae3234a9d924abcebd926"},"name":"Tzfat cheese 5%","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":2.7,"image":"1533731619334z_554532.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6ae3ac4a9d924abcebd927"},"name":"Mozzarella 22%","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":16.3,"image":"1533731756509z_554815.PNG","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6ae4e84a9d924abcebd928"},"name":"Pizzeria grated 22%","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":4.3,"image":"1533732072752z_3189076.PNG","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6ae7804a9d924abcebd940"},"name":"Sliced ​​cheese 28%","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":7.3,"image":"1533732736138z_4125776.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6aeca64a9d924abcebd946"},"name":"Yolo Milk chocolate","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":1.2,"image":"1533734054302z_7290014761056.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6af1e84a9d924abcebd947"},"name":"Ravioli with cheese","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":5.3,"image":"1533735400391z_7290105968654.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6af7214a9d924abcebd949"},"name":"Dani Chocolate 1.5%","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":1,"image":"1533736737265z_72993637.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6af7674a9d924abcebd94a"},"name":"Sheep milk yogurt","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":5.4,"image":"1533738131810e_571386.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6af7b04a9d924abcebd94b"},"name":"Bulgarian cheese Piraeus 16%","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":4.8,"image":"1533737596350z_4135614.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6af7c34a9d924abcebd94c"},"name":"Chocolate milk","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":4.5,"image":"1533737993578e_7290102396764.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6afd1335e0ec24d010ef91"},"name":"Milk 3%","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":1.5,"image":"1533738259100e_7290102398072.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6afd8835e0ec24d010ef92"},"name":"Master coffee Colombian","category":{"$oid":"5b615be47a58a3c65e5ba967"},"price":1.7,"image":"1533738376536e_4710068001739.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6afdca35e0ec24d010ef93"},"name":"Tomato","category":{"$oid":"5b615cec7a58a3c65e5ba9a4"},"price":1.3,"image":"1533738442116e_22.PNG","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6afdf635e0ec24d010ef94"},"name":"red pepper","category":{"$oid":"5b615cec7a58a3c65e5ba9a4"},"price":2.5,"image":"1533738486776e_91.PNG","__v":0,"kg":true}
+{"_id":{"$oid":"5b6afe4635e0ec24d010ef95"},"name":"Cabbage","category":{"$oid":"5b615cec7a58a3c65e5ba9a4"},"price":13,"image":"1533738566328e_138.PNG","__v":0,"kg":true}
+{"_id":{"$oid":"5b6afe6d35e0ec24d010ef96"},"name":"Beet","category":{"$oid":"5b615cec7a58a3c65e5ba9a4"},"price":1.1,"image":"1533803332166beets.jpg","__v":0,"kg":true}
+{"_id":{"$oid":"5b6aff7173b8223e981d67a0"},"name":"Apple","category":{"$oid":"5b615cec7a58a3c65e5ba9a4"},"price":2.6,"image":"1533738865435Red-Apple-PNG-Photos.png","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6affa473b8223e981d67a1"},"name":"Watermelon","category":{"$oid":"5b615cec7a58a3c65e5ba9a4"},"price":1.5,"image":"1533738916259e_965024.PNG","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6b000c73b8223e981d67a2"},"name":"Muskmelon","category":{"$oid":"5b615cec7a58a3c65e5ba9a4"},"price":2.4,"image":"1533739020130e_965055.PNG","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6b009373b8223e981d67a3"},"name":"Tilapia","category":{"$oid":"5b615cf77a58a3c65e5ba9a6"},"price":6.5,"image":"153373915529011-image.jpg","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6b015473b8223e981d67a4"},"name":"Grey mullet","category":{"$oid":"5b615cf77a58a3c65e5ba9a6"},"price":14,"image":"153373934847316-image.jpg","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6b019c73b8223e981d67a5"},"name":"Whole Chicken","category":{"$oid":"5b615cf77a58a3c65e5ba9a6"},"price":5.1,"image":"1533739420014e_9802146.PNG","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6b01d573b8223e981d67a6"},"name":"Chicken Breast","category":{"$oid":"5b615cf77a58a3c65e5ba9a6"},"price":8.6,"image":"1533739477746e_9805291.PNG","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6b022b73b8223e981d67a7"},"name":"Wing of a turkey","category":{"$oid":"5b615cf77a58a3c65e5ba9a6"},"price":4.8,"image":"1533739563097e_9819199.PNG","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6b027773b8223e981d67a8"},"name":"Salmon fillet","category":{"$oid":"5b615cf77a58a3c65e5ba9a6"},"price":24.3,"image":"1533739639942e_1127995.PNG","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6b02b073b8223e981d67a9"},"name":"Entrecote","category":{"$oid":"5b615cf77a58a3c65e5ba9a6"},"price":37.9,"image":"1533739696194e_9127492.PNG","__v":0,"kg":"true"}
+{"_id":{"$oid":"5b6b031073b8223e981d67aa"},"name":"Hamburger","category":{"$oid":"5b615cf77a58a3c65e5ba9a6"},"price":5.3,"image":"1533739792240e_1127995.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6b035573b8223e981d67ab"},"name":"Schnitzel","category":{"$oid":"5b615cf77a58a3c65e5ba9a6"},"price":8.1,"image":"1533739861027e_8409568.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6b03d973b8223e981d67ad"},"name":"kebab","category":{"$oid":"5b615cf77a58a3c65e5ba9a6"},"price":13.5,"image":"1533739993608e_5041198.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6b042573b8223e981d67ae"},"name":"Reserve Chardonnay Barkan","category":{"$oid":"5b615d047a58a3c65e5ba9ac"},"price":15.9,"image":"1533740069646e_7290012576348.PNG","__v":0,"kg":false}
+{"_id":{"$oid":"5b6decf164e92b4248414a13"},"name":"Water","category":{"$oid":"5b615d047a58a3c65e5ba9ac"},"price":10,"image":"1534159589612e_1127995.PNG","kg":false,"__v":0}
+{"_id":{"$oid":"5b6dee1bf1247c01d8b443b3"},"name":"Stella Artois Beer","category":{"$oid":"5b615d047a58a3c65e5ba9ac"},"price":6,"image":"1534159648797Stella-Artois-Beer.png","kg":false,"__v":0}
+{"_id":{"$oid":"5b707f2628a7ce39c4210520"},"name":"Tuna Steak","category":{"$oid":"5b615cf77a58a3c65e5ba9a6"},"price":10,"image":"1534159774439e_1455418.PNG","kg":false,"__v":0}

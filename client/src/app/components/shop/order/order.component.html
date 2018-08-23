@@ -1,0 +1,118 @@
+<div class="container-fluid">
+  <div class="row col-sm-12">
+    <div class="col-sm-12 col-md-12 col-lg-5 mt-3 mb-5">
+      <section class="allPanel z-depth-5" *ngIf="loading">
+        <div class="loading">
+          <div class="dash one"></div>
+          <div class="dash two"></div>
+          <div class="dash three"></div>
+          <div class="dash four"></div>
+        </div>
+      </section>
+      <section class="allPanel z-depth-5" *ngIf="!loading">
+        <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue darken-3">
+          <mdb-navbar-brand>
+            <span class="navbar-brand">My Cart</span>
+          </mdb-navbar-brand>
+        </mdb-navbar>
+        <section class="cart">
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="item" *ngFor="let p of products;index as i">
+                <th scope="row">{{i+1}}</th>
+                <td>
+                  <img class="img" src="http://localhost:3000/images/{{p.product.image}}">
+                </td>
+                <td style="text-transform: capitalize">{{p.product.name}}</td>
+                <td>{{p.amount}}
+                  <span *ngIf="p.product.kg" style="font-size: 10px">Per KG</span>
+                </td>
+                <td>{{(p.product.price * p.amount).toFixed(2)}}$</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="totalPrice">
+          <button type="button" class="float-left btn btn-danger" routerLink="/shopping">Go Back</button>
+          <h3 class="float-right">Total: {{totalPrice.toFixed(2)}}$</h3>
+        </section>
+      </section>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-7 mt-3 mb-5">
+      <section class="allPanel z-depth-5" *ngIf="loading">
+        <div class="loading">
+          <div class="dash one"></div>
+          <div class="dash two"></div>
+          <div class="dash three"></div>
+          <div class="dash four"></div>
+        </div>
+      </section>
+      <section class="allPanel z-depth-5" *ngIf="!loading">
+        <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue darken-3">
+          <mdb-navbar-brand>
+            <span class="navbar-brand">My Order</span>
+          </mdb-navbar-brand>
+        </mdb-navbar>
+
+        <form novalidate #formOrder="ngForm" (ngSubmit)="doOrder(formOrder)">
+
+          <section class="row justify-content-md-center">
+            <h2 class="col-md-12 p-4">Shopping Details</h2>
+
+            <div class="col-md-6">
+              <mat-form-field class="form-element" hintLabel="Street required">
+                <input matInput placeholder="Enter your street" name="street" type="text" #street="ngModel" [(ngModel)]="orderForm.street"
+                  required>
+                <mat-hint align="end" *ngIf="street.invalid && (street.dirty || street.touched)">
+                  <div *ngIf="street.errors.minlength">
+                    Street must be at least 4 characters long.
+                  </div>
+                </mat-hint>
+              </mat-form-field>
+              <mat-form-field class="form-element" hintLabel="City required">
+                <input matInput placeholder="Enter your city" name="city" type="text" #city="ngModel" [(ngModel)]="orderForm.city" required>
+                <mat-hint align="end" *ngIf="city.invalid && (city.dirty || city.touched)">
+                  <div *ngIf="city.errors.minlength">
+                    City must be at least 4 characters long.
+                  </div>
+                </mat-hint>
+              </mat-form-field>
+
+              <mat-form-field class="form-element" hintLabel="Shipping Date required">
+                <input name="date" required matInput disabled [(ngModel)]="orderForm.date" [min]="minDate" [matDatepickerFilter]="dateFilter"
+                  [matDatepicker]="picker" placeholder="Choose a Shipping Date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker disabled="false" #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <h2 class="col-md-12 p-4">Payment</h2>
+            <div class="col-md-6">
+              <mat-form-field class="form-element" hintLabel="Credit Card required">
+                <input matInput placeholder="Enter your Credit Card" name="creditCard" type="text" #creditCard="ngModel" minlength="16" [(ngModel)]="orderForm.creditCard"
+                  required>
+                <mat-hint align="end" *ngIf="creditCard.invalid && (creditCard.dirty || creditCard.touched)">
+                  <div *ngIf="creditCard.errors.minlength">
+                    Credit Card must be at least 16 characters long.
+                  </div>
+                </mat-hint>
+              </mat-form-field>
+              <div class="text-center">
+                <button type="submit" class="btn btn-success" mdbWavesEffect>
+                  <i class="fa fa-shopping-cart"></i> Order</button>
+              </div>
+            </div>
+          </section>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>

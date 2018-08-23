@@ -1,0 +1,14 @@
+.name{
+    cursor: default;
+    color: #fff!important;
+}
+
+.navbar{
+    background: linear-gradient(270deg, #10d68a, #003eff);
+    background-size: cover;
+    box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.75);
+    text-transform: capitalize;
+}
+.navbar-brand{
+    color:white;
+}

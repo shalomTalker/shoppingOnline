@@ -1,0 +1,12 @@
+.col-sm-12 {
+  height: 80vh;
+  min-height: 800px;
+  width: 100%;
+}
+
+.container-fluid{
+  padding: 0;
+}
+.cart{
+  min-width: 258px;
+}

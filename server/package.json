@@ -1,0 +1,20 @@
+{
+  "name": "shopping_online",
+  "version": "1.0.0",
+  "description": "Shop online for food",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ido Less",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "content-filter": "^1.1.2",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.4",
+    "multer": "^1.3.1",
+    "socket.io": "^2.1.1"
+  }
+}

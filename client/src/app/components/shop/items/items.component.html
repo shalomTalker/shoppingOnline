@@ -1,0 +1,93 @@
+<section class="allPanel z-depth-5" *ngIf="loading">
+  <div class="loading">
+    <div class="dash one"></div>
+    <div class="dash two"></div>
+    <div class="dash three"></div>
+    <div class="dash four"></div>
+  </div>
+</section>
+<div class="allPanel z-depth-5" *ngIf="!loading">
+  <div class="container-fluid" class="products">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue darken-3">
+      <links class="categories">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" *ngFor="let c of categoryList;index as i">
+            <!-- <span [swal]="{ type:'warning', title: 'Are you sure?', showCancelButton: true}" (confirm)="deleteCategory($event,c)" *ngIf="this.logged.user.level == 2">
+              <i class="fa fa-trash"></i>
+            </span> -->
+            <span [swal]="{ title: 'Update category Name', input: 'text', showCancelButton: true}" (confirm)="editCategory($event,c)" *ngIf="this.logged.user.level == 2">
+              <i class="fa fa-edit"></i>
+            </span>
+
+            <a class="nav-link waves-light" mdbWavesEffect (click)="getCategory(i)">{{c.name}}</a>
+          </li>
+          <ng-container *ngIf="this.logged.user.level == 2">
+            <button class="btn btn-success btn-sm my-0 waves-light" [swal]="{ title: 'Category Name', input: 'text', showCancelButton: true}" (confirm)="addCategory($event)"
+              mdbWavesEffect>Add</button>
+          </ng-container>
+        </ul>
+        <form class="form-inline waves-light">
+          <div class="md-form mt-1">
+            <input class="form-control" type="text" placeholder="Search" name="search" [(ngModel)]="searchString">
+            <button class="btn btn-outline-success btn-sm my-0 waves-light" type="submit" (click)="search()" mdbWavesEffect>Search</button>
+          </div>
+        </form>
+      </links>
+    </mdb-navbar>
+    <section *ngIf="productsList.length; else emptyProducts">
+      <div class="col-lg-2 col-md-4 col-sm-2 mt-4 items mb-3" *ngFor="let p of productsList">
+        <div class="card align-items-center">
+          <div class="view overlay">
+            <img src="http://localhost:3000/images/{{p.image}}">
+          </div>
+          <div class="card-body text-center">
+            <h6 class="grey-text">{{p.category.name}}</h6>
+            <h6>
+              <strong>
+                <span class="dark-grey-text">{{p.name}}</span>
+              </strong>
+            </h6>
+            <h5 class="font-weight-bold blue-text">
+              <strong>{{p.price.toFixed(2)}}$</strong>
+              <p class="kg" *ngIf="p.kg">PER KG</p>
+            </h5>
+          </div>
+          <div *ngIf="this.logged.user.level == 1;else adminEdit">
+            <ng-container *ngIf="!p.inCart;else updateItem">
+              <ng-container *ngIf="p.kg else notKgItem">
+                <button type="button" class="btn btn-outline-success" [swal]="{ title: 'Enter Quantity', input: 'number',  
+              inputAttributes: { step: 0.5, min: 0.5 }, showCancelButton: true }" (confirm)="addToCart(p,$event)" mdbWavesEffect>add to cart</button>
+              </ng-container>
+              <ng-template #notKgItem>
+                <button *ngIf="!p.kg" type="button" class="btn btn-outline-success" [swal]="{ title: 'Enter Quantity', input: 'number',  
+                inputAttributes: { min: 1 } , showCancelButton: true}" (confirm)="addToCart(p,$event)" mdbWavesEffect>add to cart</button>
+              </ng-template>
+
+            </ng-container>
+          </div>
+          <ng-template #adminEdit>
+            <button type="button" class="btn btn-outline-info" (click)="updateProduct(p)" mdbWavesEffect>Update product</button>
+          </ng-template>
+          <ng-template #updateItem>
+            <ng-container *ngIf="p.kg else notKgItem">
+              <button type="button" class="btn btn-outline-primary" [swal]="{ title: 'Update Quantity', input: 'number',  
+                inputAttributes: { step: 0.5, min: 0.5 } , showCancelButton: true}" (confirm)="addToCart(p,$event)" mdbWavesEffect>update item</button>
+            </ng-container>
+            <ng-template #notKgItem>
+              <button *ngIf="!p.kg" type="button" class="btn btn-outline-primary" [swal]="{ title: 'Update Quantity', input: 'number',  
+                  inputAttributes: { min: 1 } , showCancelButton: true}" (confirm)="addToCart(p,$event)" mdbWavesEffect>update item</button>
+            </ng-template>
+
+          </ng-template>
+        </div>
+      </div>
+    </section>
+    <ng-template #emptyProducts>
+      <h3 class="font-weight-bold blue-text p-5" *ngIf="this.logged.user.level == 1;else adminText">There are no products to show in this category, please choose another category</h3>
+      <ng-template #adminText>
+        <h3 class="font-weight-bold blue-text p-5">Welcome to the editing panel and adding products,
+          <br> please select a category to update a product</h3>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>

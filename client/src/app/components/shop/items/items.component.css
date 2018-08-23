@@ -1,0 +1,69 @@
+section {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: baseline;
+}
+.products{
+  height: 790px;
+  overflow-y: auto;
+}
+.form-inline > div{
+  margin: 0;
+}
+
+.container-fluid {
+  padding: 0;
+
+}
+.card {
+  height: 300px;
+  width: 180px;
+  cursor: default;
+}
+.card .btn{
+  padding: 6px 23px;
+}
+.card-body{
+  padding: 0px;
+}
+.overlay{
+  height: 150px;
+}
+.overlay img {
+  object-fit: contain;
+  height: 150px;
+  padding: 5px;
+  width: 176px;
+}
+
+.items {
+  padding: 0px 5px;
+  min-width: 186px;
+  margin: 15px 0!important;
+}
+.dark-grey-text{
+  word-break: break-word;
+  text-transform: capitalize;
+}
+.navbar-collapse{
+  height: auto!important;
+}
+.kg{
+  font-size: 11px;
+  color: #4f4f4f;
+}
+.categories ul{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.categories ul li{
+  width:150px;
+}
+.categories ul li span{
+  float: right;
+  cursor: pointer;
+}

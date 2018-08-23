@@ -1,0 +1,25 @@
+.form-element {
+  margin: 5px 0;
+}
+
+.img {
+  object-fit: contain;
+  width: 50px;
+  height: 50px;
+}
+
+h2 {
+  text-align: center;
+}
+
+h6 {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+  color: lightgray;
+}
+
+.mat-nav-list {
+  height: 700px;
+  overflow-y: auto;
+}

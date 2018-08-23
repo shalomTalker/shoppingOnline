@@ -1,0 +1,130 @@
+<div *ngIf="logged.user.level==1;else admin">
+  <!-- loading -->
+  <section class="allPanel z-depth-5" *ngIf="loading">
+    <div class="loading">
+      <div class="dash one"></div>
+      <div class="dash two"></div>
+      <div class="dash three"></div>
+      <div class="dash four"></div>
+    </div>
+  </section>
+  <!-- cart -->
+  <div class="allPanel z-depth-5" *ngIf="!loading" (click)="btnUpdate(i,false, $event)">
+    <div class="container-fluid">
+      <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue darken-3">
+        <mdb-navbar-brand>
+          <span class="navbar-brand">My Cart</span>
+        </mdb-navbar-brand>
+      </mdb-navbar>
+      <section class="cart">
+        <section *ngIf="products.length;else emptyCart">
+          <ng-container *ngFor="let c of categoriesList">
+            <app-category [categoryInfo]="c" [products]="products" (btnUpdate)="btnUpdate($event)" (removeFromCart)="removeFromCart($event)" (doUpdateItemEmit)="doUpdateItem($event)"></app-category>
+          </ng-container>
+        </section>
+      </section>
+      <section class="order" *ngIf="products.length">
+        <button type="button" class="form-control btn btn-success" routerLink="/order">
+          <i class="fa fa-shopping-cart"></i> {{totalPrice.toFixed(2)}}$</button>
+      </section>
+    </div>
+  </div>
+  <ng-template #emptyCart>
+    <h2 class="p-5 blue-text">Empty Cart</h2>
+  </ng-template>
+</div>
+
+<!-- admin panel -->
+
+<ng-template #admin>
+  <section class="allPanel z-depth-5">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue darken-3">
+      <mdb-navbar-brand>
+        <span class="navbar-brand">{{addForm ? 'Add Product' : 'Update Product'}}</span>
+        <button type="button" class="btn btn-primary px-4 pull-right" (click)="addProduct()">
+          <i class="fa fa-plus" mdbWavesEffect></i>
+        </button>
+      </mdb-navbar-brand>
+    </mdb-navbar>
+    <!-- add form -->
+    <section class="p-3" *ngIf="addForm;else updateForm">
+      <form novalidate #addProductForm="ngForm" (ngSubmit)="doAddProduct(addProductForm)">
+        <mat-form-field class="form-element" hintLabel="Product name required">
+          <input matInput placeholder="Enter product name" type="text" minlength="3" maxlength="30" name="name" #productName="ngModel"
+            [(ngModel)]="addProductObj.name">
+          <mat-hint align="end">
+            Max 30 characters. {{productName.value?.length || 0}}/30
+            <section *ngIf="productName.invalid && (productName.dirty || productName.touched)">
+              <div *ngIf="productName.errors.minlength">
+                Product name must be at least 3 characters long.
+              </div>
+            </section>
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field class="form-element" hintLabel="Category required">
+          <mat-select [(value)]="selected" placeholder="Enter category" [(ngModel)]="addProductObj.category" name="category">
+            <mat-option *ngFor="let category of categoriesList" [value]="category._id">{{ category.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-element" hintLabel="Price required">
+          <input matInput placeholder="Enter Price" name="price" min="1" type="number" pattern="[0-9]+(\.[0-9][0-9]?)?" #productPrice="ngModel"
+            class="example-right-align" [(ngModel)]="addProductObj.price">
+          <span matPrefix>$&nbsp;</span>
+          <mat-hint align="end" *ngIf="productPrice.invalid && (productPrice.dirty || productPrice.touched)">
+            <div *ngIf="productPrice.errors.pattern">
+              Negative number can not be used
+            </div>
+          </mat-hint>
+        </mat-form-field>
+        <mat-slide-toggle name="kg" [(ngModel)]="addProductObj.kg">
+          Per KG
+        </mat-slide-toggle>
+        <input type="file" class="mt-2" #uploadForm ng2FileSelect [uploader]="uploader" name="file" required>
+        <div class="text-center  mt-2">
+          <button type="submit" class="btn btn-outline-primary" mdbWavesEffect>Add Product</button>
+        </div>
+      </form>
+    </section>
+    <!--update form-->
+    <ng-template #updateForm>
+      <section class="p-3">
+        <form novalidate #updateProductForm="ngForm" (ngSubmit)="doUpdateProduct(updateProductForm)">
+          <mat-form-field class="form-element">
+            <input matInput placeholder="Enter product name" type="text" minlength="3" maxlength="30" name="name" #productName="ngModel"
+              [(ngModel)]="updateProductObj.name">
+            <mat-hint align="end">
+              Max 30 characters. {{productName.value?.length || 0}}/30
+              <section *ngIf="productName.invalid && (productName.dirty || productName.touched)">
+                <div *ngIf="productName.errors.minlength">
+                  Product name must be at least 3 characters long.
+                </div>
+              </section>
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field class="form-element">
+            <mat-select [(value)]="selected" placeholder="Enter category" [(ngModel)]="updateProductObj.category" name="category">
+              <mat-option *ngFor="let category of categoriesList" [value]="category._id">{{ category.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="form-element">
+            <input matInput placeholder="Enter Price" name="price" min="1" type="number" pattern="[0-9]+(\.[0-9][0-9]?)?" #productPrice="ngModel"
+              class="example-right-align" [(ngModel)]="updateProductObj.price">
+            <span matPrefix>$&nbsp;</span>
+            <mat-hint align="end" *ngIf="productPrice.invalid && (productPrice.dirty || productPrice.touched)">
+              <div *ngIf="productPrice.errors.pattern">
+                Negative number can not be used
+              </div>
+            </mat-hint>
+          </mat-form-field>
+          <mat-slide-toggle name="kg" [checked]="updateProductObj.kg" [(ngModel)]="updateProductObj.kg">
+            Per KG
+          </mat-slide-toggle>
+          <input type="file" class="mt-2" #uploadForm ng2FileSelect [uploader]="uploader" name="file">
+          <div class="text-center  mt-2">
+            <button type="submit" class="btn btn-outline-primary" mdbWavesEffect>Save Changes</button>
+          </div>
+        </form>
+      </section>
+    </ng-template>
+  </section>
+</ng-template>

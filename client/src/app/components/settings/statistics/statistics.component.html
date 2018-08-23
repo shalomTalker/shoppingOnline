@@ -1,0 +1,141 @@
+<div class="container-fluid">
+  <div class="row col-sm-12 justify-content-center">
+    <div class="col-sm-12 col-md-12 col-lg-12 mt-3">
+      <section class="allPanel z-depth-5" *ngIf="loading">
+        <div class="loading">
+          <div class="dash one"></div>
+          <div class="dash two"></div>
+          <div class="dash three"></div>
+          <div class="dash four"></div>
+        </div>
+      </section>
+      <section class="allPanel z-depth-5" *ngIf="!loading">
+        <mat-card>
+          <mat-card-content>
+            <mat-tab-group>
+              <mat-tab label="Users">
+                <h2>List of users</h2>
+                <ng-container *ngIf="users.length; else empty">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">ID</th>
+                          <th scope="col">First Name</th>
+                          <th scope="col">Last Name</th>
+                          <th scope="col">Full Address</th>
+                          <th scope="col">Number of Orders</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let user of users;index as i">
+                          <th>{{i+1}}</th>
+                          <th>{{user._id}}</th>
+                          <td>{{user.firstName}}</td>
+                          <td>{{user.lastName}}</td>
+                          <td>{{user.street}} {{user.city}}</td>
+                          <td>{{user.orders.length}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </ng-container>
+                <ng-template #empty>
+                  <p>Users empty</p>
+                </ng-template>
+              </mat-tab>
+              <mat-tab label="Orders">
+                <h2>List of orders</h2>
+                <ng-container *ngIf="orders.length; else empty">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">ID</th>
+                          <th scope="col">Full Name</th>
+                          <th scope="col">Order Create</th>
+                          <th scope="col">Full Address</th>
+                          <th scope="col">Number of products</th>
+                          <th scope="col">Shipping Date</th>
+                          <th scope="col">Payment</th>
+                          <th scope="col">Total Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let order of orders;index as i" [ngClass]="{'table-success': order.end}" s>
+                          <th>{{i+1}}</th>
+                          <th>{{order._id}}</th>
+                          <td>{{order.user.firstName}} {{order.user.lastName}}</td>
+                          <td>{{order.orderCreate}}</td>
+                          <td>{{order.address[0].street}} {{order.address[0].city}}</td>
+                          <td>{{order.products.length}}</td>
+                          <td>{{order.shippingDate[0].date}}/{{order.shippingDate[0].month}}/{{order.shippingDate[0].year}}</td>
+                          <td>Visa: {{order.payment.creditCard}}</td>
+                          <td>{{order.totalPrice.toFixed(2)}}$</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </ng-container>
+                <ng-template #empty>
+                  <p>Orders empty</p>
+                </ng-template>
+              </mat-tab>
+              <mat-tab label="Products">
+                <h2>List of products</h2>
+                <ng-container *ngIf="products.length; else empty">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">ID</th>
+                          <th scope="col">Image</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Category</th>
+                          <th scope="col">Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let product of products;index as i">
+                          <th>{{i+1}}</th>
+                          <th>{{product._id}}</th>
+                          <td>
+                            <img class="img" src="http://localhost:3000/images/{{product.image}}">
+                          </td>
+                          <td>{{product.name}}</td>
+                          <td>{{product.category.name}}</td>
+                          <td>{{product.price}}$</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </ng-container>
+                <ng-template #empty>
+                  <p>Product empty</p>
+                </ng-template>
+              </mat-tab>
+              <mat-tab label="Sales By Categories">
+                <h2>Sales By Categories</h2>
+                  <div style="position: relative; height:70vh; width:93vw">
+                    <canvas baseChart [datasets]="salesCategories" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                      [chartType]="barChartType"></canvas>
+                  </div>
+              </mat-tab>
+              <mat-tab label="Profit by month">
+                <h2>Profit by month</h2>
+                  <div style="position: relative; height:70vh; width:93vw">
+                    <canvas baseChart [datasets]="ProfitMonth" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                      [chartType]="barChartType"></canvas>
+                  </div>
+              </mat-tab>
+            </mat-tab-group>
+          </mat-card-content>
+        </mat-card>
+
+      </section>
+    </div>
+  </div>
+</div>

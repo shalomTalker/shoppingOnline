@@ -1,0 +1,45 @@
+
+.blue-text {
+  font-weight: bold;
+}
+
+.container-fluid {
+  height: 750px;
+  padding: 0;
+}
+
+.cart {
+  overflow-y: auto;
+  height: 685px;
+  width: 100%;
+}
+
+h3 {
+  height: 100%;
+  line-height: 50px;
+  margin-left: 5px;
+}
+
+button {
+  padding: 10px 30px;
+}
+
+mdb-navbar-brand {
+  width: 100%;
+}
+
+.navbar-brand {
+  line-height: 38px !important;
+}
+.btn.btn-success{
+  width: 100%;
+}
+
+.order{
+  display: flex;
+  width:100%;
+}
+
+mat-slide-toggle{
+  display: block;
+}

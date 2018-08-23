@@ -1,0 +1,117 @@
+<div class="allPanel z-depth-5">
+  <!-- Logged -->
+  <div class="container-fluid p-4">
+
+    <div class="col-centered text-center" *ngIf="logged.token != null;else notlogged">
+      <h5 *ngIf="userOrders  == 0">Welcome to your first purchase</h5>
+      <button type="button" class="btn btn-info" [routerLink]="['/shopping']" mdbWavesEffect>{{cartStatus ? cartStatus : 'Start Shopping'}}</button>
+    </div>
+  </div>
+  <!-- NOT Logged -->
+  <ng-template #notlogged>
+    <div class="container mt-2">
+      <mat-tab-group (selectedTabChange)="tabChanged($event)">
+        <mat-tab label="Login">
+          <form novalidate #formLogin="ngForm" (ngSubmit)="doLogin(formLogin)">
+            <mat-form-field class="form-element" hintLabel="Email required">
+              <input matInput placeholder="Enter your Email" type="text" name="email" #email="ngModel" [(ngModel)]="userLogin.email" required
+                email>
+              <mat-hint align="end" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.email">
+                  Invalid email
+                </div>
+              </mat-hint>
+            </mat-form-field>
+            <mat-form-field class="form-element" hintLabel="Password required">
+              <input matInput placeholder="Enter your password" name="password" [type]="hide ? 'text':'password'" [(ngModel)]="userLogin.password"
+                required>
+              <mat-icon matSuffix (click)="hide = !hide">
+                <i class="fa {{hide ? 'fa-eye-slash':'fa-eye'}}"></i>
+              </mat-icon>
+            </mat-form-field>
+            <div class="text-center">
+              <button type="submit" class="btn btn-outline-primary" mdbWavesEffect>Login</button>
+            </div>
+          </form>
+        </mat-tab>
+        <mat-tab label="Register">
+          <form novalidate #formRegister="ngForm" (ngSubmit)="doRegister(formRegister)">
+            <mat-form-field class="form-element" hintLabel="Email required">
+              <input matInput placeholder="Enter your Email" type="text" name="email" #email="ngModel" [(ngModel)]="userRegister.email"
+                required email>
+              <mat-hint align="end" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.email">
+                  Invalid email
+                </div>
+              </mat-hint>
+            </mat-form-field>
+            <mat-form-field class="form-element" hintLabel="Password required">
+              <input matInput placeholder="Enter your password" name="password" [type]="hide ? 'text':'password'" #password="ngModel" minlength="6"
+                [(ngModel)]="userRegister.password" required>
+              <mat-icon matSuffix (click)="hide = !hide">
+                <i class="fa {{hide ? 'fa-eye-slash':'fa-eye'}}"></i>
+              </mat-icon>
+              <mat-hint align="end" *ngIf="password.invalid && (password.dirty || password.touched)">
+                <div *ngIf="password.errors.minlength">
+                  Password must be at least 6 characters long.
+                </div>
+              </mat-hint>
+            </mat-form-field>
+            <mat-form-field class="form-element" hintLabel="Password required">
+              <input matInput placeholder="Re-type password" name="password1" [type]="hide1 ? 'text':'password'" #password1="ngModel" minlength="6"
+                [(ngModel)]="userRegister.password1" required>
+              <mat-icon matSuffix (click)="hide1 = !hide1">
+                <i class="fa {{hide1 ? 'fa-eye-slash':'fa-eye'}}"></i>
+              </mat-icon>
+              <mat-hint align="end" *ngIf="password1.invalid && (password1.dirty || password1.touched)">
+                <div *ngIf="password1.errors.minlength">
+                  Password must be at least 6 characters long.
+                </div>
+              </mat-hint>
+            </mat-form-field>
+            <mat-form-field class="form-element" hintLabel="First Name required">
+              <input matInput placeholder="Enter your First Name" name="firstName" type="text" #firstName="ngModel" minlength="3" [(ngModel)]="userRegister.firstName"
+                required>
+              <mat-hint align="end" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                <div *ngIf="firstName.errors.minlength">
+                  First name must be at least 3 characters long.
+                </div>
+              </mat-hint>
+            </mat-form-field>
+            <mat-form-field class="form-element" hintLabel="Last Name required">
+              <input matInput placeholder="Enter your last name" name="lastName" type="text" #lastName="ngModel" minlength="3" [(ngModel)]="userRegister.lastName"
+                required>
+              <mat-hint align="end" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                <div *ngIf="lastName.errors.minlength">
+                  Last name must be at least 3 characters long.
+                </div>
+              </mat-hint>
+            </mat-form-field>
+            <mat-form-field class="form-element" hintLabel="Street required">
+              <input matInput placeholder="Enter your street" name="street" type="text" #street="ngModel" minlength="4" [(ngModel)]="userRegister.street"
+                required>
+              <mat-hint align="end" *ngIf="street.invalid && (street.dirty || street.touched)">
+                <div *ngIf="street.errors.minlength">
+                  Street must be at least 4 characters long.
+                </div>
+              </mat-hint>
+            </mat-form-field>
+            <mat-form-field class="form-element" hintLabel="City required"> 
+              <input matInput placeholder="Enter your city"  name="city" type="text" [matAutocomplete]="auto" [(ngModel)]="userRegister.city" [formControl]="cityCtrl" minlength="4"
+                required>
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let city of filteredCites | async" [value]="city.name">
+                  <img class="img" style="vertical-align:middle;" src="../../../../assets/cities/{{city.flag}}">
+                  <span>{{ city.name }}</span> 
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <div class="text-center">
+              <button type="submit" class="btn btn-outline-secondary" mdbWavesEffect>Sign up</button>
+            </div>
+          </form>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,20 @@
+<ng-container *ngIf="productsCatrgory.length">
+  <h3>{{categoryInfo.name}}</h3>
+  <div class="productRow productRowHover clearfix" *ngFor="let p of productsCatrgory">
+    <img class="img" src="http://localhost:3000/images/{{p.product.image}}">
+    <div class="amount">
+    <div class="changeAmount">
+      <span class="up" (click)="changeValue(true,p.product._id, $event)"></span>
+      <span class="down" (click)="changeValue(false,p.product._id, $event)"></span>
+      <input class=number type="number" min=0 value="{{p.amount}}" #number (keyup.enter)="changeValue('Specific',p.product._id,number.value)">
+      <div class="popUpdate" *ngIf="p.update">
+        <button type="button" class="btn btn-primary px-1 popupBtn" (click)="doUpdateItem(p.amount,p.product,$event)">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+    <div class="productName">{{p.product.name}}</div>
+    <div class="price">${{(p.product.price * p.amount).toFixed(2)}}</div>
+  </div>
+</ng-container>
