@@ -12,10 +12,10 @@ The site was built with the following technologies and languages:
 - MongoDB
 
 ### User connects to the site
-![user]("https://image.ibb.co/dbmPiK/098760.gif")
+![Imgur](https://image.ibb.co/dbmPiK/098760.gif)
 
 ### Administrator connects to the site
-![administrator]("https://image.ibb.co/d6EKiK/098760.gif")
+![Imgur](https://image.ibb.co/d6EKiK/098760.gif)
 
 ## How to use a website
 Must download the following node js and Angular to run the site
