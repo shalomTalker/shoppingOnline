@@ -8,9 +8,9 @@ export class AuthGuard implements CanActivate {
   constructor(private user: UsersService, private router: Router) {}
 
   canActivate(next: ActivatedRouteSnapshot) {
-    console.log('guarded route:',next.routeConfig.path);   
-    console.log('route data:',next.data);
-    console.log('user level:',this.user.level);
+    // console.log('guarded route:',next.routeConfig.path);   
+    // console.log('route data:',next.data);
+    // console.log('user level:',this.user.level);
     if(next.data) {
       if(next.data.minLevelAllowed) {
         if( this.user.level < next.data.minLevelAllowed ) {
