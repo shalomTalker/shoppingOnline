@@ -65,7 +65,6 @@ export class ItemsComponent implements OnInit {
       }
       this.cart.addItem(product._id,amount).subscribe(
         result => {
-          console.log(result);
           this.socket.sendMsg({
             "type": "addCart",
             "object": {"product":product, "amount":amount}

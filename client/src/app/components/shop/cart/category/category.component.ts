@@ -47,6 +47,10 @@ export class CategoryComponent implements OnInit {
     }
   }
 
+  doDelete(p){
+    this.removeFromCart.emit(p);
+  }
+
   changeValue(boolean,id,e){
     if(boolean == 'Specific'){
       let value:any = e*1;
